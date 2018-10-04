@@ -14,7 +14,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/vidiemme/vidiutils.git", :tag => "v#{s.version}" }
   s.author       = { "Vidiemme Consulting SRL" => "info@vidiemme.com" }
 
-  s.platform     = :ios, '10.0'
+  s.ios.deployment_target = "10.0"
+  s.osx.deployment_target = "10.10"
 
   s.source_files = 'Sources/**/*.{swift}'
 end
