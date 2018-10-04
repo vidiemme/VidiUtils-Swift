@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.swift_version = '4.1'
   s.name         = "vidiutils"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "A comprehensive set of iOS utils"
 
   s.description  = <<-DESC
