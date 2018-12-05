@@ -55,7 +55,7 @@
 		OBJ_13 /* vidiutilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vidiutilsTests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		"vidiutils::vidiutils::Product" /* vidiutils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = vidiutils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"vidiutils::vidiutilsTests::Product" /* vidiutilsTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = vidiutilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"vidiutils::vidiutilsTests::Product" /* vidiutilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = vidiutilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +190,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					"vidiutils::vidiutils" = {
+						LastSwiftMigration = 1010;
+					};
+					"vidiutils::vidiutilsTests" = {
+						LastSwiftMigration = 1010;
+					};
+				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "vidiutils" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -274,7 +282,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = vidiutils;
 				VALID_ARCHS = "i386 x86_64 armv7 armv7s arm64";
 			};
@@ -299,7 +307,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = vidiutils;
 				VALID_ARCHS = "i386 x86_64 armv7 armv7s arm64";
 			};
@@ -310,7 +318,7 @@
 			buildSettings = {
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -319,7 +327,7 @@
 			buildSettings = {
 				LD = /usr/bin/true;
 				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -371,7 +379,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = vidiutilsTests;
 			};
 			name = Debug;
@@ -390,7 +398,7 @@
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = vidiutilsTests;
 			};
 			name = Release;

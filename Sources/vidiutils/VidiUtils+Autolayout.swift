@@ -10,11 +10,11 @@ import UIKit
 
 public extension UIView {
     
-    func constraintWithAttribute(_ attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
+    func constraintWithAttribute(_ attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
         return self.superview?.constraints.filter({ $0.firstAttribute == attribute && $0.firstItem != nil && $0.firstItem! as! NSObject == self }).first
     }
     
-    func myConstraintWithAttribute(_ attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
+    func myConstraintWithAttribute(_ attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
         return self.constraints.filter({ $0.firstAttribute == attribute && $0.firstItem != nil && $0.firstItem! as! NSObject == self }).first
     }
     public var topConstraint: NSLayoutConstraint? {
