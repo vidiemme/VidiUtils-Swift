@@ -13,12 +13,17 @@ public struct vidiprint {
     public static var printFile: Bool = true
     public static var printFunc: Bool = true
     public static var printLine: Bool = true
+    public static var loggerHandler: ((String) -> (Void))?
     
     fileprivate init() { }
-
+    
     
     //debug
     public static func d(_ items: String, separator: String = "", terminator: String = "\n", file: String = #file, line: Int = #line, funcName: String = #function) {
+        if let handler = vidiprint.loggerHandler {
+            handler(items)
+            vidiprint.loggerHandler = nil
+        }
         #if DEBUG
         let newItems = "\(VidiEvent.debug.rawValue) \(addInfos(items: items, file: file, line: line, funcName: funcName))"
         _vidiprint(newItems, separator: separator, terminator: terminator, file: file, line: line, funcName: funcName)
@@ -27,6 +32,10 @@ public struct vidiprint {
     
     //warning
     public static func w(_ items: String, separator: String = "", terminator: String = "\n", file: String = #file, line: Int = #line, funcName: String = #function) {
+        if let handler = vidiprint.loggerHandler {
+            handler(items)
+            vidiprint.loggerHandler = nil
+        }
         #if DEBUG
         let newItems = "\(VidiEvent.warning.rawValue) \(addInfos(items: items, file: file, line: line, funcName: funcName))"
         _vidiprint(newItems, separator: separator, terminator: terminator, file: file, line: line, funcName: funcName)
@@ -35,6 +44,10 @@ public struct vidiprint {
     
     //error
     public static func e(_ items: String, separator: String = "", terminator: String = "\n", file: String = #file, line: Int = #line, funcName: String = #function) {
+        if let handler = vidiprint.loggerHandler {
+            handler(items)
+            vidiprint.loggerHandler = nil
+        }
         #if DEBUG
         let newItems = "\(VidiEvent.error.rawValue) \(addInfos(items: items, file: file, line: line, funcName: funcName))"
         _vidiprint(newItems, separator: separator, terminator: terminator, file: file, line: line, funcName: funcName)
