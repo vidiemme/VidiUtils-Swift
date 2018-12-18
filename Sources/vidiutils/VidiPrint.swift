@@ -2,8 +2,8 @@
 
 import Foundation
 
-fileprivate enum VidiEvent: String {
-    case debug = ""
+public enum VidiEvent: String {
+    case debug = "🐛"
     case warning = "⚠️"
     case error = "🔥"
 }
@@ -13,43 +13,33 @@ public struct vidiprint {
     public static var printFile: Bool = true
     public static var printFunc: Bool = true
     public static var printLine: Bool = true
-    public static var loggerHandler: ((String) -> (Void))?
+    public static var loggerHandler: ((String, VidiEvent) -> (Void))?
     
     fileprivate init() { }
     
-    
     //debug
     public static func d(_ items: String, separator: String = "", terminator: String = "\n", file: String = #file, line: Int = #line, funcName: String = #function) {
-        if let handler = vidiprint.loggerHandler {
-            handler(items)
-            vidiprint.loggerHandler = nil
-        }
-        #if DEBUG
         let newItems = "\(VidiEvent.debug.rawValue) \(addInfos(items: items, file: file, line: line, funcName: funcName))"
+        vidiprint.loggerHandler?(newItems, .debug)
+        #if DEBUG
         _vidiprint(newItems, separator: separator, terminator: terminator, file: file, line: line, funcName: funcName)
         #endif
     }
     
     //warning
     public static func w(_ items: String, separator: String = "", terminator: String = "\n", file: String = #file, line: Int = #line, funcName: String = #function) {
-        if let handler = vidiprint.loggerHandler {
-            handler(items)
-            vidiprint.loggerHandler = nil
-        }
-        #if DEBUG
         let newItems = "\(VidiEvent.warning.rawValue) \(addInfos(items: items, file: file, line: line, funcName: funcName))"
+        vidiprint.loggerHandler?(newItems, .warning)
+        #if DEBUG
         _vidiprint(newItems, separator: separator, terminator: terminator, file: file, line: line, funcName: funcName)
         #endif
     }
     
     //error
     public static func e(_ items: String, separator: String = "", terminator: String = "\n", file: String = #file, line: Int = #line, funcName: String = #function) {
-        if let handler = vidiprint.loggerHandler {
-            handler(items)
-            vidiprint.loggerHandler = nil
-        }
-        #if DEBUG
         let newItems = "\(VidiEvent.error.rawValue) \(addInfos(items: items, file: file, line: line, funcName: funcName))"
+        vidiprint.loggerHandler?(newItems, .error)
+        #if DEBUG
         _vidiprint(newItems, separator: separator, terminator: terminator, file: file, line: line, funcName: funcName)
         #endif
     }
@@ -72,3 +62,4 @@ public struct vidiprint {
 fileprivate func _vidiprint(_ items: Any, separator: String = "", terminator: String = "\n", file: String = #file, line: Int = #line, funcName: String = #function) {
     print(items, separator: separator, terminator: terminator)
 }
+
