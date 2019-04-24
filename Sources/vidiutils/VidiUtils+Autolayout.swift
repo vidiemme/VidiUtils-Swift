@@ -10,38 +10,39 @@ import UIKit
 
 public extension UIView {
     
-    func constraintWithAttribute(_ attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
+    internal func constraintWithAttribute(_ attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
         return self.superview?.constraints.filter({ $0.firstAttribute == attribute && $0.firstItem != nil && $0.firstItem! as! NSObject == self }).first
     }
     
-    func myConstraintWithAttribute(_ attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
+    internal func myConstraintWithAttribute(_ attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
         return self.constraints.filter({ $0.firstAttribute == attribute && $0.firstItem != nil && $0.firstItem! as! NSObject == self }).first
     }
-    public var topConstraint: NSLayoutConstraint? {
+	
+    var topConstraint: NSLayoutConstraint? {
         return self.constraintWithAttribute(.top)
     }
     
-    public var bottomConstraint: NSLayoutConstraint? {
+    var bottomConstraint: NSLayoutConstraint? {
         return self.constraintWithAttribute(.bottom)
     }
     
-    public var leadingConstraint: NSLayoutConstraint? {
+    var leadingConstraint: NSLayoutConstraint? {
         return self.constraintWithAttribute(.leading)
     }
     
-    public var trailingConstraint: NSLayoutConstraint? {
+    var trailingConstraint: NSLayoutConstraint? {
         return self.constraintWithAttribute(.trailing)
     }
     
-    public var widthConstraint: NSLayoutConstraint? {
+    var widthConstraint: NSLayoutConstraint? {
         return self.myConstraintWithAttribute(.width)
     }
     
-    public var heightConstraint: NSLayoutConstraint? {
+    var heightConstraint: NSLayoutConstraint? {
         return self.myConstraintWithAttribute(.height)
     }
     
-    public func attachOnTop(explicitHeight: CGFloat? = nil, topSpacing: CGFloat, topView: UIView? = nil, widthMultiplier: CGFloat? = nil) {
+    func attachOnTop(explicitHeight: CGFloat? = nil, topSpacing: CGFloat, topView: UIView? = nil, widthMultiplier: CGFloat? = nil) {
         self.translatesAutoresizingMaskIntoConstraints = false
         var margins: UILayoutGuide!
         let superview = topView ?? self.superview!
@@ -55,7 +56,7 @@ public extension UIView {
         if let widthMultiplier = widthMultiplier {
             self.widthAnchor.constraint(equalTo: superview.widthAnchor, multiplier: widthMultiplier).isActive = true
             self.centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
-        }else{
+        } else {
             self.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
             self.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
         }
@@ -63,12 +64,12 @@ public extension UIView {
         
         if let explicitHeight = explicitHeight {
             self.heightAnchor.constraint(equalToConstant: explicitHeight).isActive = true
-        }else {
+        } else {
             self.bottomAnchor.constraint(equalTo: self.superview!.bottomAnchor).isActive = true
         }
     }
     
-    public func centerInSuperview() {
+    func centerInSuperview() {
         guard let superview = self.superview else { return }
         self.translatesAutoresizingMaskIntoConstraints = false
         self.centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
@@ -82,7 +83,8 @@ public extension UIView {
             return self.layoutMarginsGuide
         }
     }
-    public func fillSuperview() {
+	
+    func fillSuperview() {
         var margins: UILayoutGuide!
         let superview = self.superview!
         if #available(iOS 11.0, *) {
