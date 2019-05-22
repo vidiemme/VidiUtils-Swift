@@ -13,6 +13,7 @@ public struct vidiprint {
     public static var printFile: Bool = true
     public static var printFunc: Bool = true
     public static var printLine: Bool = true
+    public static var printDebugOnLoggerHandler: Bool = false
     public static var loggerHandler: ((String, VidiEvent) -> (Void))?
     
     fileprivate init() { }
@@ -20,7 +21,9 @@ public struct vidiprint {
     //debug
     public static func d(_ items: String, separator: String = "", terminator: String = "\n", file: String = #file, line: Int = #line, funcName: String = #function) {
         let newItems = "\(VidiEvent.debug.rawValue) \(addInfos(items: items, file: file, line: line, funcName: funcName))"
-        vidiprint.loggerHandler?(newItems, .debug)
+        if printDebugOnLoggerHandler {
+            vidiprint.loggerHandler?(newItems, .debug)
+        }
         #if DEBUG
         _vidiprint(newItems, separator: separator, terminator: terminator, file: file, line: line, funcName: funcName)
         #endif
