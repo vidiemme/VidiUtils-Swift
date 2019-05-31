@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.swift_version = '4.2'
   s.name         = "vidiutils"
-  s.version      = "0.1.6"
+  s.version      = "0.1.7"
   s.summary      = "A comprehensive set of iOS utils"
 
   s.description  = <<-DESC
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.homepage     = "https://github.com/vidiemme/vidiutils"
 
-  s.license      = "MIT (Copyright (c) 2018 Vidiemme Consulting SRL)"
+  s.license      = "MIT (Copyright (c) 2019 Vidiemme Consulting SRL)"
   s.source       = { :git => "https://github.com/vidiemme/vidiutils.git", :tag => "v#{s.version}" }
   s.author       = { "Vidiemme Consulting SRL" => "info@vidiemme.com" }
 
