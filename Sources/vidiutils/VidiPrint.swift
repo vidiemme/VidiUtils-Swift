@@ -5,6 +5,7 @@ import Foundation
 public enum VidiEvent: String {
     case debug = "🐛"
     case warning = "⚠️"
+    case info = "🧐"
     case error = "🔥"
 }
 
@@ -29,6 +30,15 @@ public struct vidiprint {
     public static func w(_ items: String, separator: String = "", terminator: String = "\n", file: String = #file, line: Int = #line, funcName: String = #function) {
         let newItems = "\(VidiEvent.warning.rawValue) \(addInfos(items: items, file: file, line: line, funcName: funcName))"
         vidiprint.loggerHandler?(newItems, .warning)
+        #if DEBUG
+        _vidiprint(newItems, separator: separator, terminator: terminator, file: file, line: line, funcName: funcName)
+        #endif
+    }
+    
+    //info
+    public static func i(_ items: String, separator: String = "", terminator: String = "\n", file: String = #file, line: Int = #line, funcName: String = #function) {
+        let newItems = "\(VidiEvent.info.rawValue) \(addInfos(items: items, file: file, line: line, funcName: funcName))"
+        vidiprint.loggerHandler?(newItems, .info)
         #if DEBUG
         _vidiprint(newItems, separator: separator, terminator: terminator, file: file, line: line, funcName: funcName)
         #endif
