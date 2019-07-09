@@ -1,4 +1,4 @@
-# VidiUtils - TypeScript
+# VidiUtils - Swift
 
 > A comprehensive set of iOS utils.
 
