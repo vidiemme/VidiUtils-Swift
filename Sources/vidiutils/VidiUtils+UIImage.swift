@@ -60,6 +60,25 @@ extension UIImageView {
 }
 
 extension UIImage {
+    
+    /// Create a new image with specified size and background color.
+    /// It might return `nil` if there's been an error with graphic context.
+    /// 
+    /// - Parameters:
+    ///   - color: background color of new image
+    ///   - size: size of new image
+    convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+      let rect = CGRect(origin: .zero, size: size)
+      UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+      color.setFill()
+      UIRectFill(rect)
+      let image = UIGraphicsGetImageFromCurrentImageContext()
+      UIGraphicsEndImageContext()
+      
+      guard let cgImage = image?.cgImage else { return nil }
+      self.init(cgImage: cgImage)
+    }
+    
     static func mergeImages(top: UIImage, bottom: UIImage) -> UIImage? {
         let size = CGSize(width: top.size.width, height: top.size.height + bottom.size.height)
         UIGraphicsBeginImageContextWithOptions(size, true, 0.0)
