@@ -24,6 +24,7 @@
 		4792DC752152B006005BEFDE /* VidiUtils+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4792DC742152B006005BEFDE /* VidiUtils+Autolayout.swift */; };
 		4792DC772152B14C005BEFDE /* VidiPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4792DC762152B14C005BEFDE /* VidiPrint.swift */; };
 		4792DC792152B27F005BEFDE /* VidiUtils+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4792DC782152B27F005BEFDE /* VidiUtils+UIImage.swift */; };
+		62B09576256268040041152A /* VidiUtils+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B09575256268040041152A /* VidiUtils+UIView.swift */; };
 		OBJ_29 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_40 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* XCTestManifests.swift */; };
 		OBJ_41 /* vidiutilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* vidiutilsTests.swift */; };
@@ -51,6 +52,7 @@
 		4792DC742152B006005BEFDE /* VidiUtils+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VidiUtils+Autolayout.swift"; sourceTree = "<group>"; };
 		4792DC762152B14C005BEFDE /* VidiPrint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VidiPrint.swift; sourceTree = "<group>"; };
 		4792DC782152B27F005BEFDE /* VidiUtils+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VidiUtils+UIImage.swift"; sourceTree = "<group>"; };
+		62B09575256268040041152A /* VidiUtils+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VidiUtils+UIView.swift"; sourceTree = "<group>"; };
 		OBJ_12 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_13 /* vidiutilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vidiutilsTests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				4792DC762152B14C005BEFDE /* VidiPrint.swift */,
 				4792DC742152B006005BEFDE /* VidiUtils+Autolayout.swift */,
 				4792DC782152B27F005BEFDE /* VidiUtils+UIImage.swift */,
+				62B09575256268040041152A /* VidiUtils+UIView.swift */,
 			);
 			name = vidiutils;
 			path = Sources/vidiutils;
@@ -204,6 +207,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = OBJ_5;
@@ -226,6 +230,7 @@
 			files = (
 				4792DC772152B14C005BEFDE /* VidiPrint.swift in Sources */,
 				4792DC752152B006005BEFDE /* VidiUtils+Autolayout.swift in Sources */,
+				62B09576256268040041152A /* VidiUtils+UIView.swift in Sources */,
 				4792DC792152B27F005BEFDE /* VidiUtils+UIImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
