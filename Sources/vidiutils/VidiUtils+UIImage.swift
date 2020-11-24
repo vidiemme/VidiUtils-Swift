@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     func takeScreenshot() -> UIImage? {
         if #available(iOS 11.0, *) {
@@ -59,7 +59,7 @@ extension UIImageView {
     }
 }
 
-extension UIImage {
+public extension UIImage {
     
     /// Create a new image with specified size and background color.
     /// It might return `nil` if there's been an error with graphic context.
